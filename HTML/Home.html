@@ -1,12 +1,184 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/style.css">
-    <title>Document</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home — Site Name</title>
+  <link rel="stylesheet" href="../CSS/estiloHome.css">
+  <script src="../JS/app.js" defer></script>
 </head>
 <body>
-    
+
+  <!-- Franja superior -->
+  <div class="top">
+    <div class="wrap top__row" aria-label="Accesos rápidos">
+      <span class="muted">Bienvenido(a)</span>
+      <span class="spacer"></span>
+      <a href="#">Iniciar sesión</a>
+      <span class="top__sep">|</span>
+      <a href="#">Registrar usuario</a>
+    </div>
+  </div>
+
+  <!-- Encabezado / navegación -->
+  <header role="banner">
+    <div class="wrap nav">
+      <a class="brand" href="#" aria-label="Inicio">
+        <span class="brand__dot" aria-hidden="true"></span>
+        <span>Site Name</span>
+      </a>
+
+      <nav class="nav__links" aria-label="Principal">
+        <a href="#" aria-current="page">Home</a>
+        <a href="productos.html ">Productos</a>
+        <a href="#">Nosotros</a>
+        <a href="#">Blog</a>
+        <a href="#">Contacto</a>
+      </nav>
+
+      <div class="nav__actions">
+        <a class="cart" href="carrito.html" aria-label="Carrito">
+          🛒 <span>Cart</span> <span class="cart__badge" id="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap" id="contenido">
+    <!-- Héroe -->
+    <section class="hero" aria-labelledby="titulo-hero">
+      <div class="hero__card">
+        <h1 id="titulo-hero">TIENDA ONLINE</h1>
+        <p>Nuestra colección estacional ya está disponible con envíos a todo Chile.
+           Descubre ofertas y novedades seleccionadas especialmente para ti.</p>
+        <a href="productos.html" class="btn">Ver Productos</a>
+        <a class="btn btn--ghost" href="#">Conócenos</a>
+      </div>
+      <div class="hero__media" aria-hidden="true">
+        <div class="media__ph">Imagen destacada 16:9</div>
+      </div>
+    </section>
+
+    <!-- Grilla de productos -->
+    <section class="section" id="productos" aria-labelledby="titulo-prods">
+      <h2 class="visually-hidden" id="titulo-prods">Productos destacados</h2>
+      <div class="grid" role="list">
+        <!-- Tarjeta 1 -->
+        <article class="card col-12 sm-col-6 lg-col-3" role="listitem">
+          <div class="card__img">Auriculares</div>
+          <div class="card__body">
+            <div class="muted">Accesorios</div>
+            <h3 style="margin:.2rem 0 .3rem">Auriculares Pro X</h3>
+            <div class="card__row">
+              <span class="price">$39.990</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Tarjeta 2 -->
+        <article class="card col-12 sm-col-6 lg-col-3" role="listitem">
+          <div class="card__img">Cámara</div>
+          <div class="card__body">
+            <div class="muted">Fotografía</div>
+            <h3 style="margin:.2rem 0 .3rem">Cámara Compacta M2</h3>
+            <div class="card__row">
+              <span class="price">$129.990</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Tarjeta 3 -->
+        <article class="card col-12 sm-col-6 lg-col-3" role="listitem">
+          <div class="card__img">Smartwatch</div>
+          <div class="card__body">
+            <div class="muted">Wearables</div>
+            <h3 style="margin:.2rem 0 .3rem">Reloj S10</h3>
+            <div class="card__row">
+              <span class="price">$79.990</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Tarjeta 4 -->
+        <article class="card col-12 sm-col-6 lg-col-3" role="listitem">
+          <div class="card__img">Parlante</div>
+          <div class="card__body">
+            <div class="muted">Audio</div>
+            <h3 style="margin:.2rem 0 .3rem">Parlante GO Mini</h3>
+            <div class="card__row">
+              <span class="price">$24.990</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Segunda fila -->
+        <article class="card col-12 sm-col-6 lg-col-3" role="listitem">
+          <div class="card__img">Teclado</div>
+          <div class="card__body">
+            <div class="muted">Periféricos</div>
+            <h3 style="margin:.2rem 0 .3rem">Teclado Mecánico K65</h3>
+            <div class="card__row">
+              <span class="price">$49.990</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card col-12 sm-col-6 lg-col-3" role="listitem">
+          <div class="card__img">Mochila</div>
+          <div class="card__body">
+            <div class="muted">Bolsos</div>
+            <h3 style="margin:.2rem 0 .3rem">Mochila Daypack 20L</h3>
+            <div class="card__row">
+              <span class="price">$32.990</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card col-12 sm-col-6 lg-col-3" role="listitem">
+          <div class="card__img">Botella</div>
+          <div class="card__body">
+            <div class="muted">Outdoor</div>
+            <h3 style="margin:.2rem 0 .3rem">Botella Térmica 750ml</h3>
+            <div class="card__row">
+              <span class="price">$14.990</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card col-12 sm-col-6 lg-col-3" role="listitem">
+          <div class="card__img">Polera</div>
+          <div class="card__body">
+            <div class="muted">Ropa</div>
+            <h3 style="margin:.2rem 0 .3rem">Polera Essential</h3>
+            <div class="card__row">
+              <span class="price">$9.990</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie -->
+  <footer>
+    <div class="wrap foot">
+      <div class="foot__row">
+        <strong>Site Name</strong>
+        <span class="spacer"></span>
+        <a href="#">Category 1</a>
+        <a href="#">Category 2</a>
+        <a href="#">Category 3</a>
+      </div>
+      <div class="foot__row">
+        <form onsubmit="event.preventDefault(); alert('¡Gracias por suscribirte!')">
+          <label for="email" class="visually-hidden">Correo</label>
+          <input id="email" type="email" placeholder="Ingresa tu correo" required />
+          <button>Suscribirse</button>
+        </form>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../JS/app.js"></script>
 </body>
 </html>

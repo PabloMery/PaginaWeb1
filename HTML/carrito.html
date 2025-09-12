@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carrito — Site Name</title>
+  <link rel="stylesheet" href="../CSS/estilocarrito.css">
+</head>
+<body>
+  <!-- Top (igual al resto) -->
+  <div class="top">
+    <div class="wrap top__row">
+      <span class="muted">Bienvenido(a)</span>
+      <span class="spacer"></span>
+      <a href="#">Iniciar sesión</a>
+      <span class="top__sep">|</span>
+      <a href="#">Registrar usuario</a>
+    </div>
+  </div>
+
+  <!-- Header / Nav (igual al resto) -->
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="home.html" aria-label="Inicio">
+        <span class="brand__dot" aria-hidden="true"></span>
+        <span>Site Name</span>
+      </a>
+
+      <nav class="nav__links" aria-label="Principal">
+        <a href="home.html">Home</a>
+        <a href="productos.html">Productos</a>
+        <a href="#">Nosotros</a>
+        <a href="#">Contacto</a>
+      </nav>
+
+      <div class="nav__actions">
+        🛒 Cart <span class="cart__badge" id="cart-count">0</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1 class="title">Mi carrito de compras</h1>
+
+    <section class="cart">
+      <!-- lista de items -->
+      <div class="panel">
+        <div id="cart-list" class="list"></div>
+      </div>
+
+      <!-- resumen -->
+      <aside class="panel summary">
+        <div class="sumLine"><strong>TOTAL:</strong><strong id="sum-total">$0</strong></div>
+        <div class="sumLine"><span>Descuento</span><span id="sum-disc">-$0</span></div>
+        <div class="sumLine total"><span>Total a pagar</span><span id="sum-pay">$0</span></div>
+
+        <div class="coupon">
+          <input id="coupon" type="text" placeholder="Ingresa cupón de descuento" />
+          <button id="apply-coupon" class="iconBtn" title="Aplicar">✓</button>
+        </div>
+
+        <button id="pay" class="btn">PAGAR</button>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div class="foot__row">
+        <strong>Site Name</strong>
+        <span class="spacer"></span>
+        <a href="#">Category 1</a>
+        <a href="#">Category 2</a>
+        <a href="#">Category 3</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../JS/app.js"></script>
+  <script>
+    // Por si entras directo al carrito, actualiza el badge
+    document.addEventListener("DOMContentLoaded", () => {
+      if (typeof updateCartBadge === "function") updateCartBadge();
+    });
+  </script>
+</body>
+</html>

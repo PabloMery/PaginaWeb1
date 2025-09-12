@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Detalle de producto — Site Name</title>
+  <link rel="stylesheet" href="../CSS/estilodetalleProductos.css">
+  <script src="../JS/app.js" defer></script>
+
+</head>
+<body>
+  <!-- Navbar / Header -->
+
+  <main class="wrap">
+    <nav class="breadcrumb">
+      <a href="home.html">Home</a>  <a href="productos.html" id="breadcrumb-cat">Categoría</a>  <span id="p-title-bc">Producto</span>
+    </nav>
+
+    <section class="product">
+      <div class="panel left">
+        <div id="p-main"></div>
+        <div id="p-thumbs" class="thumbs"></div>
+      </div>
+
+      <div class="panel right">
+        <div class="p-title">
+          <h1 id="p-title">Nombre Producto</h1>
+          <div class="price" id="p-price">$0</div>
+        </div>
+        <p id="p-desc" class="muted">Descripción…</p>
+
+        <div class="qty">
+          <label for="qty">Cantidad</label>
+          <input id="qty" type="number" min="1" max="10" value="1">
+        </div>
+        <button id="add-btn" class="btn">Añadir al carrito</button>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>Productos Relacionados</h2>
+      <div id="related" class="rel__list"></div>
+    </section>
+  </main>
+
+  <script src="../JS/app.js"></script>
+</body>
+</html>
