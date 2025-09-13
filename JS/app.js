@@ -1,10 +1,10 @@
 /* ========= Datos (ejemplo) ========= */
 const PRODUCTS = [
-  { id: 1,  name: "Auriculares Pro X",   price: 39990,  category: "Audio",       stock: 20, images: ["img1a.jpg","img1b.jpg","img1c.jpg"] },
-  { id: 2,  name: "Cámara Compacta M2",  price: 129990, category: "Fotografía",  stock: 8,  images: ["img2a.jpg","img2b.jpg"] },
-  { id: 3,  name: "Reloj S10",           price: 79990,  category: "Wearables",   stock: 15, images: ["img3a.jpg"] },
-  { id: 4,  name: "Parlante GO Mini",    price: 24990,  category: "Audio",       stock: 12, images: ["img4a.jpg"] },
-  { id: 5,  name: "Teclado Mecánico K65",price: 49990,  category: "Periféricos", stock: 10, images: ["img5a.jpg"] },
+  { id: 1,  name: "Bicicleta BMX Wtp Arcade Candy Red",   price: 594992,  category: "BMX",       stock: 20, images: ["img1a.jpg","img1b.jpg","img1c.jpg"] },
+  { id: 2,  name: "Bicicleta BMX Wtp Trust Cs Rsd Matt Black",  price: 1149990, category: "BMX",  stock: 8,  images: ["img2a.jpg","img2b.jpg"] },
+  { id: 3,  name: "Bicicleta BMX Wtp Trust Fc Rsd Matt Trans Violet",           price: 1149990,  category: "BMX",   stock: 15, images: ["img3a.jpg"] },
+  { id: 4,  name: "Scooter Monopatín De Pie Plegable Ajustable Jovenes Adultos",    price: 36990,  category: "Monopatin",       stock: 12, images: ["img4a.jpg"] },
+  { id: 5,  name: "Scooter Lucky Crew Black Neo",price: 215992,  category: "Monopatin", stock: 10, images: ["img5a.jpg"] },
   { id: 6,  name: "Mochila Daypack 20L", price: 32990,  category: "Bolsos",      stock: 18, images: ["img6a.jpg"] },
   { id: 7,  name: "Botella Térmica 750ml",price:14990,  category: "Outdoor",     stock: 25, images: ["img7a.jpg"] },
   { id: 8,  name: "Polera Essential",    price: 9990,   category: "Ropa",        stock: 30, images: ["img8a.jpg"] },
@@ -39,11 +39,8 @@ function updateCartBadge() {
   if (badge) badge.textContent = String(cartCount());
 }
 
-/** Reglas:
- * - No permitir qty < 1
- * - Máx. 10 por compra
- * - No exceder stock
- */
+/*Reglas de negocio para añadir al carrito*/
+
 function addToCart(productId, qty = 1) {
   const prod = PRODUCTS.find(p => p.id === productId);
   if (!prod) return alert("Producto no encontrado.");
@@ -149,7 +146,6 @@ function renderRelated(product) {
   `).join("");
 }
 
-/* ========= Inicialización genérica ========= */
 /* ========= Utilidades carrito extra ========= */
 // Cambiar cantidad de un item
 function setQty(productId, qty){
@@ -195,6 +191,7 @@ function computeTotals(cart = getCart()){
   const code = getCoupon();
   if(code === "DESCUENTO10") discount = Math.round(subtotal * 0.10);
   if(code === "FREESHIP")    discount = 4000;
+  if(code === "TOTALGRATIS") discount = subtotal*0.99; // sólo para pruebas
   if(discount > subtotal) discount = subtotal;
 
   const total = subtotal - discount;
