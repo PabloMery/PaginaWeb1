@@ -1,3 +1,4 @@
+
 :root{--bg:#f6f7f9;--card:#fff;--ink:#1f2937;--muted:#6b7280;--brand:#2563eb;--brand-ink:#fff;--border:#e5e7eb;--ring:#c7d2fe;--max:1200px;--radius:14px;--shadow:0 6px 20px rgba(0,0,0,.06)}
 *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
 
