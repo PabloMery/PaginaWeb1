@@ -1,11 +1,18 @@
 {
   "version": "0.2.0",
   "configurations": [
-    
+
     {
       "type": "pwa-chrome",
       "request": "launch",
       "name": "Abrir Carrito.html (Brave)",
+      "runtimeExecutable": "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
+      "file": "c:/Users/pablo/OneDrive/Escritorio/PaginaWeb1/HTML/Carrito.html"
+    },
+        {
+      "type": "pwa-chrome",
+      "request": "launch",
+      "name": "Abrir Carrito.html (Opera)",
       "runtimeExecutable": "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
       "file": "c:/Users/pablo/OneDrive/Escritorio/PaginaWeb1/HTML/Carrito.html"
     }
