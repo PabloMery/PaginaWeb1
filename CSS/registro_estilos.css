@@ -1,0 +1,104 @@
+.altura
+{
+    height: 100px;
+    background-color:burlywood
+}
+
+
+
+.row > div
+{
+    border-style: solid;
+    height: 100%;
+}
+
+img
+{
+    height: 295px;
+}
+
+
+
+.altura2
+{
+    height: 300px;
+    background-color: chocolate;
+    border-style: solid;
+}
+
+
+
+.pie
+{
+    height: 30px;
+    background-color: crimson;
+}
+
+
+
+.navta_color
+{
+    background-color: rgb(202, 202, 202);
+}
+
+.tiny-input
+{
+    padding-top: 0.1rem;     /* más reducido que el sm */
+    padding-bottom: 0.1rem;
+    font-size: 0.8rem;       /* texto más pequeño */
+    height: auto;            /* evita que bootstrap lo fuerce */
+}
+
+.cuestionario
+{
+    height: 550px;
+    max-width: 500px;
+    margin: auto;
+    border-style: solid;
+    background-color:rgb(234, 234, 234);
+    margin-top: 50px;
+}
+.titulo
+{
+    height: 30px;
+    text-align: center;
+    font-weight: bold;
+    margin: auto;
+    max-width: 400px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    border-style: solid;
+    background-color:rgb(152, 152, 152);
+}
+.texto_titulo
+{
+    text-align: left;
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 5px;
+    line-height: 25px;
+}
+
+
+
+
+
+.boton-abajo {
+  position: absolute;
+  bottom: 50px; /* distancia desde el borde inferior */
+  left: 50%;     /* centra horizontalmente */
+  transform: translateX(-50%); /* ajusta para centrar exactamente */
+}
+header{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10}
+
+.nav{display:flex;align-items:center;gap:1rem;padding:.9rem 0}
+
+.brand{display:flex;align-items:center;gap:.6rem;font-weight:700}.brand__dot{width:.8rem;height:.8rem;border-radius:999px;background:#111}
+
+.nav__links{display:flex;gap:1rem;flex-wrap:wrap}.nav__links a{padding:.35rem .6rem;border-radius:.6rem}
+
+.nav__links a[aria-current="page"]{background:#f3f4f6}
+
+.nav__actions{margin-left:auto;display:flex;align-items:center;gap:1rem}
+
+.cart__badge{background:#111;color:#fff;border-radius:999px;padding:.05rem .45rem;font-size:.78rem}

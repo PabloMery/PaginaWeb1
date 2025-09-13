@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro usuarios</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/registro_estilos.css">
+</head>
+<body>
+
+  <!--NAV-->    
+  <nav class="navbar navbar-expand-lg navbar-light py-4 navta_color">
+    <div class="container-fluid">
+      <a class="navbar-brand ps-5" href="#">⬛ Tangana</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+
+        <ul class="navbar-nav ms-5 me-auto mb-2 mb-lg-0 ps-5">
+          <li class="nav-item">
+            <a class="nav-link text-primary text-decoration-underline active" href="#">Home</a>
+          </li>
+          <li class="nav-item d-flex align-items-center">
+            <span>|</span>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-primary text-decoration-underline" href="#">Productos</a>
+          </li>
+          <li class="nav-item d-flex align-items-center">
+            <span>|</span>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-primary text-decoration-underline" href="#">Nosotros</a>
+          </li>
+          <li class="nav-item d-flex align-items-center">
+            <span>|</span>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-primary text-decoration-underline" href="#">Blogs</a>
+          </li>
+          <li class="nav-item d-flex align-items-center">
+            <span>|</span>
+          </li>
+            <a class="nav-link text-primary text-decoration-underline" href="#">Contacto</a>
+          </li>
+        </ul>
+        <header role="banner">
+            <div class="wrap nav">
+            <a class="brand" href="#" aria-label="Inicio">
+                <span class="brand__dot" aria-hidden="true"></span>
+                <span>Site Name</span>
+            </a>
+
+            <nav class="nav__links" aria-label="Principal">
+                <a href="#" aria-current="page">Home</a>
+                <a href="productos.html ">Productos</a>
+                <a href="#">Nosotros</a>
+                <a href="#">Blog</a>
+                <a href="#">Contacto</a>
+            </nav>
+
+            <div class="nav__actions">
+                <a class="cart" href="carrito.html" aria-label="Carrito">
+                🛒 <span>Carrito</span> <span class="cart__badge" id="cart-count">0</span>
+                </a>
+            </div>
+            </div>
+        </header>
+
+
+        <form class="d-flex pe-5">
+          <a class="navbar-brand ps-5" href="#">🛒 Cart (0)</a>
+        </form>
+        
+      </div>
+    </div>
+  </nav>
+
+
+
+
+
+
+
+
+
+
+
+  <!--CUERPO-->
+  <div class="container-sm">
+    <div class="row cuestionario">
+      <div class="col">
+        <div class="titulo">
+          <h1 class="texto_titulo">Registro de usuarios</h1>
+        </div>
+        
+        <form action="#" method="get">
+          <div class="mb-0">
+            <label for="nombre" class="form-label mb-0">Nombre completo</label>
+            <input type="text" class="form-control tiny-input" id="nombre" placeholder="Pedrito soto">
+          </div>
+
+          <div class="mb-0">
+            <label for="correo" class="form-label mb-0">Correo</label>
+            <input type="text" class="form-control tiny-input" id="correo" placeholder="pedrito@gmail.com">
+          </div>
+
+          <div class="mb-0">
+            <label for="contrasena" class="form-label mb-0">Contraseña</label>
+            <input type="text" class="form-control tiny-input" id="contrasena" placeholder="*****">
+          </div>
+
+          <div class="mb-0">
+            <label for="confi_contrasena" class="form-label mb-0">Confirmar contraseña</label>
+            <input type="text" class="form-control tiny-input" id="confi_contrasena" placeholder="*****">
+          </div>
+
+
+          <div class="mb-0">
+            <label for="edad" class="form-label mb-0">Telefono (opcional)</label>
+            <input type="text" class="form-control tiny-input" id="edad" placeholder="20">
+          </div>
+
+
+
+
+
+
+
+          <select class="form-select" aria-label="Default select example">
+            <option value="" selected disabled>Seleccione región</option>
+            <option value="1">Arica y Parinacota</option>
+            <option value="2">Tarapacá</option>
+            <option value="3">Antofagasta</option>
+            <option value="4">Atacama</option>
+            <option value="5">Coquimbo</option>
+            <option value="6">Valparaíso</option>
+            <option value="7">Region Metropolitana de Santiago</option>
+            <option value="8">O'Higgins</option>
+            <option value="9">Maule</option>
+            <option value="10">Ñuble</option>
+            <option value="11">Biobío</option>
+            <option value="12">La Araucanía</option>
+            <option value="13">Los Ríos</option>
+            <option value="14">Los Lagos</option>
+            <option value="15">Aysén del General Carlos Ibáñez del Campo</option>
+            <option value="16">Magallanes y de la Antártica Chilena</option>
+          </select>
+
+
+
+
+
+
+          <button class="btn btn-primary boton-abajo">Enviar</button>
+        </form>
+
+
+
+      </div>   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <!--
+    <div class="row altura">
+
+      <div class="col-sm-12 col-md-3 col-lg-4 align-self-start">Texto 1</div>
+      <div class="col-sm-12 col-md-3 col-lg-4 align-self-center">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="https://i.redd.it/novm36pikbd81.png" class="d-block" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="https://assets.mycast.io/actor_images/actor-tsuyu-asui-325020_large.jpg?1639628972" class="d-block" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="https://i.pinimg.com/1200x/9a/35/2d/9a352d2d34b6d9196b0cdd14218d1ea5.jpg" class="d-block" alt="...">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4 align-self-end">Texto 3</div>
+    </div>
+    
+    
+
+
+
+
+
+
+
+    
+    <div class="row altura2">
+
+
+
+      <div class="col">
+        <h1>Formulario</h1>
+        <form action="#" method="get">
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre usuario</label>
+            <input type="text" class="form-control" id="nombre" placeholder="Pedrito soto">
+          </div>
+
+          <div class="mb-3">
+            <label for="edad" class="form-label">Edad usuario</label>
+            <input type="number" class="form-control" id="edad" placeholder="20">
+          </div>
+
+
+          <center><button class="btn btn-primary">Enviar</button></center>
+        </form>
+
+
+
+      </div>
+      
+
+
+      <div class="col">b</div>
+      
+
+    </div>
+    -->
+
+
+  </div>
+  
+
+
+
+  
+    
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="../js/registro_documento.js"></script>
+</body>
+</html>
