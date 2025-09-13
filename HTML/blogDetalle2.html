@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Detalle 2 - Site Name</title>
+    <link rel="stylesheet" href="../CSS/blog.css"/>
+</head>
+<body>
+  <!-- Franja superior -->
+  <div class="top">
+    <div class="wrap top__row" aria-label="Accesos rápidos">
+      <span class="muted">Bienvenido(a)</span>
+      <span class="spacer"></span>
+      <a href="../HTML/inicioSesion.html">Iniciar sesión</a>
+      <span class="top__sep">|</span>
+      <a href="#">Registrar usuario</a>
+    </div>
+  </div>
+
+  <!-- Encabezado / navegación -->
+  <header role="banner">
+    <div class="wrap nav">
+      <a class="brand" href="#" aria-label="Inicio">
+        <span class="brand__dot" aria-hidden="true"></span>
+        <span>Site Name</span>
+      </a>
+
+      <nav class="nav__links" aria-label="Principal">
+        <a href="#" aria-current="page">Home</a>
+        <a href="productos.html ">Productos</a>
+        <a href="#">Nosotros</a>
+        <a href="blog.html">Blog</a>
+        <a href="#">Contacto</a>
+      </nav>
+
+      <div class="nav__actions">
+        <a class="cart" href="carrito.html" aria-label="Carrito">
+          🛒 <span>Carrito</span> <span class="cart__badge" id="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+<main class="wrap">
+    <article class="post-card" style="grid-template-columns:1fr;">
+      <div class="post-img" aria-hidden="true" style="min-height:260px;">Imagen</div>
+      <div class="post-body">
+        <h1 class="post-title">¡Prepárate para ser ciclista!</h1>
+        <div class="post-meta">Anuncio de tienda — 2025</div>
+
+        <p>
+          ¡Seguimos celebrando la victoria de <strong>Pablo Sánchez</strong>!
+          Para impulsar a más personas a subirse a la bicicleta, anunciaremos
+          <strong>descuentos próximos</strong> en dos productos destacados:
+        </p>
+        <ul>
+          <li><a href="detallesProductos.html?id=7">Botella Térmica 750 ml</a> — hidratación segura y práctica.</li>
+          <li><a href="detallesProductos.html?id=2">Bicicleta BMX Wtp Trust Cs Rsd Matt Black</a> — rendimiento probado.</li>
+        </ul>
+
+        <p>
+          Mantente atento a los <strong>anuncios en tienda</strong>, nuestra <strong>página web</strong> y
+          <strong>redes sociales</strong>, donde liberaremos toda la información de la campaña.
+          ¡Es tu momento para dar el primer pedaleo!
+        </p>
+
+        <p class="muted">
+          *Los descuentos y condiciones serán publicados oficialmente en nuestros canales. Stock sujeto a disponibilidad.
+        </p>
+
+        <p><a class="btn-outline" href="blog.html">← Volver al Blog</a></p>
+      </div>
+    </article>
+</main>
+</body>
+</html>
