@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Site Name</title>
+    <link rel="stylesheet" href="../CSS/blog.css"/>
+    <script src="../JS/blog.js" defer></script>
+</head>
+<body>
+  <!-- Franja superior -->
+  <div class="top">
+    <div class="wrap top__row" aria-label="Accesos rápidos">
+      <span class="muted">Bienvenido(a)</span>
+      <span class="spacer"></span>
+      <a href="../HTML/inicioSesion.html">Iniciar sesión</a>
+      <span class="top__sep">|</span>
+      <a href="#">Registrar usuario</a>
+    </div>
+  </div>
+
+  <!-- Encabezado / navegación -->
+  <header role="banner">
+    <div class="wrap nav">
+      <a class="brand" href="#" aria-label="Inicio">
+        <span class="brand__dot" aria-hidden="true"></span>
+        <span>Site Name</span>
+      </a>
+
+      <nav class="nav__links" aria-label="Principal">
+        <a href="#" aria-current="page">Home</a>
+        <a href="productos.html ">Productos</a>
+        <a href="#">Nosotros</a>
+        <a href="#">Blog</a>
+        <a href="#">Contacto</a>
+      </nav>
+
+      <div class="nav__actions">
+        <a class="cart" href="carrito.html" aria-label="Carrito">
+          🛒 <span>Carrito</span> <span class="cart__badge" id="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="blog-hero">
+      <h1>NOTICIAS IMPORTANTES</h1>
+      <p class="muted">Últimas novedades y curiosidades de la tienda.</p>
+    </section>
+
+    <section id="blog-list" class="blog-list" aria-label="Listado de noticias">
+      <!-- Tarjetas renderizadas por blog.js -->
+    </section>
+  </main>
+
+</body>
+</html>
