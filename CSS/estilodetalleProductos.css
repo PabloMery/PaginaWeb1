@@ -12,7 +12,6 @@ header{background:#fff;border-bottom:1px solid var(--border);position:sticky;top
 .product{display:grid;gap:1.2rem;grid-template-columns:1.2fr 1fr}
 .panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
 .left,.right{padding:1rem}
-.main-ph{aspect-ratio:4/3;background:repeating-linear-gradient(45deg,#e5e7eb,#e5e7eb 16px,#f3f4f6 16px,#f3f4f6 32px);border-radius:10px;display:grid;place-items:center;color:#4b5563}
 .thumbs{display:flex;gap:.5rem;margin-top:.6rem}
 .thumb{border:1px solid var(--border);background:#fff;border-radius:.4rem;padding:.35rem .5rem}
 .thumb.is-active{outline:3px solid var(--ring)}
@@ -24,8 +23,38 @@ header{background:#fff;border-bottom:1px solid var(--border);position:sticky;top
 input[type=number]{width:80px;padding:.4rem;border:1px solid var(--border);border-radius:.5rem}
 .btn{border:1px solid var(--brand);background:var(--brand);color:#fff;padding:.6rem 1rem;border-radius:.7rem;font-weight:700}
 
-.related{margin:1.4rem 0}
 .rel__list{display:grid;gap:1rem;grid-template-columns:repeat(5,1fr)}
-.rel__item{display:block;background:#fff;border:1px solid var(--border);border-radius:.7rem;padding:.5rem;text-align:center}
-.rel__img{aspect-ratio:4/3;background:#eef2ff;border:1px dashed #d1d5db;border-radius:.5rem;margin-bottom:.4rem;display:grid;place-items:center;color:#6b7280}
-@media (max-width:900px){.product{grid-template-columns:1fr}}
+.rel__item{background:#fff;border:1px solid var(--border);border-radius:.7rem;padding:.6rem;display:flex;flex-direction:column;gap:.4rem}
+.rel__img{aspect-ratio:4/3;background:#f3f4f6;border-radius:.5rem;overflow:hidden;border:1px dashed #e5e7eb;display:grid;place-items:center}
+.rel__img img{width:100%;height:100%;object-fit:cover;display:block}
+.rel__t{font-size:.95rem;min-height:2.6em;display:block}
+.rel__row{display:flex;justify-content:space-between;align-items:center;margin-top:.3rem}
+.rel__price{font-weight:700}
+.rel__add{border:1px solid var(--brand);background:var(--brand);color:#fff;padding:.35rem .6rem;border-radius:.5rem;font-weight:600}
+@media (max-width:900px){.rel__list{grid-template-columns:repeat(2,1fr)}}
+/* Contenedor de la imagen principal */
+#p-main{
+  aspect-ratio: 4 / 3;
+  background:#f3f4f6;
+  border-radius:10px;
+  overflow:hidden;
+  display:grid; place-items:center;
+}
+
+/* La imagen principal rellena sin deformarse */
+#p-main img{
+  width:100%; height:100%;
+  object-fit: contain;   /* usa 'cover' si prefieres recorte */
+  display:block;
+}
+
+/* Miniaturas con <img> reales (ya tienes .thumb, sumamos esto) */
+.thumbs .thumb{
+  width:72px; height:56px;           /* 4:3 aprox */
+  padding:0; overflow:hidden;
+  display:grid; place-items:center;
+}
+.thumbs .thumb img{
+  width:100%; height:100%;
+  object-fit: cover; display:block;
+}

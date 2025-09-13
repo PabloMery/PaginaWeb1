@@ -6,34 +6,44 @@
   <title>Detalle de producto — Site Name</title>
   <link rel="stylesheet" href="../CSS/estilodetalleProductos.css">
   <script src="../JS/app.js" defer></script>
-
 </head>
 <body>
-  <!-- Navbar / Header -->
+  <!-- Top -->
+  <div class="top">
+    <div class="wrap top__row">
+      <span class="muted">Bienvenido(a)</span>
+      <span class="spacer"></span>
+      <a href="#">Iniciar sesión</a>
+      <span class="top__sep">|</span>
+      <a href="#">Registrar usuario</a>
+    </div>
+  </div>
 
-  <main class="wrap">
-  <!-- Header / Nav (igual al resto) -->
+  <!-- Header / Nav -->
   <header>
     <div class="wrap nav">
       <a class="brand" href="home.html" aria-label="Inicio">
         <span class="brand__dot" aria-hidden="true"></span>
         <span>Site Name</span>
       </a>
-
       <nav class="nav__links" aria-label="Principal">
         <a href="home.html">Home</a>
         <a href="productos.html">Productos</a>
         <a href="#">Nosotros</a>
         <a href="#">Contacto</a>
       </nav>
-
       <div class="nav__actions">
         <a class="cart" href="carrito.html" aria-label="Carrito">
-          🛒 <span>Carrritos</span> <span class="cart__badge" id="cart-count">0</span>
+          🛒 <span>Carrito</span> <span class="cart__badge" id="cart-count">0</span>
         </a>
       </div>
     </div>
   </header>
+
+  <main class="wrap">
+    <nav class="breadcrumb">
+      <a href="home.html">Home</a> › <a href="productos.html" id="breadcrumb-cat">Categoría</a> › <span id="p-title-bc">Producto</span>
+    </nav>
 
     <section class="product">
       <div class="panel left">
@@ -61,7 +71,5 @@
       <div id="related" class="rel__list"></div>
     </section>
   </main>
-
-  <script src="../JS/app.js"></script>
 </body>
 </html>
