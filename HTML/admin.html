@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin — Productos</title>
+  <link rel="stylesheet" href="../CSS/admin.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <h1>Administrador de Productos</h1>
+      <div class="toolbar">
+        <button id="btnAdd" class="btn">+ Nuevo</button>
+        <button id="btnSave" class="btn secondary">Guardar en LocalStorage</button>
+        <button id="btnLoad" class="btn secondary">Cargar de LocalStorage</button>
+        <button id="btnExport" class="btn">Exportar JSON</button>
+        <label for="fileImp" class="btn secondary fileLabel">Importar JSON</label>
+        <input id="fileImp" type="file" accept="application/json" hidden>
+      </div>
+    </header>
+
+    <main class="card">
+      <div class="hint">
+        <p>• <b>Imágenes</b>: separa URLs por coma (ej: <code>../IMG/BMX/bmx1.jpg, ../IMG/BMX/bmx1b.jpg</code>)</p>
+        <p>• Cambios se persisten al “Guardar en LocalStorage” o al exportar JSON.</p>
+      </div>
+
+      <div class="tableWrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="id">ID</th>
+              <th>Nombre</th>
+              <th>Categoría</th>
+              <th class="num">Precio</th>
+              <th class="num">Stock</th>
+              <th class="images">Imágenes (coma)</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+
+      <div class="statusRow">
+        <span id="status" class="status muted">Listo.</span>
+      </div>
+    </main>
+  </div>
+
+  <!-- Importante: primero app.js (trae window.PRODUCTS), luego admin.js -->
+  <script src="../JS/app.js"></script>
+  <script src="../JS/admin.js"></script>
+</body>
+</html>

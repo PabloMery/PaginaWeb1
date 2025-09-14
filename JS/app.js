@@ -1,4 +1,3 @@
-/* ========= Datos (ejemplo) ========= */
 const PRODUCTS = [
   { id: 1,  name: "Bicicleta BMX Wtp Arcade Candy Red", price: 594992, category: "BMX", stock: 20,
     images: ["../IMG/BMX/bmx1a.jpg","../IMG/BMX/bmx1b.jpg","../IMG/BMX/bmx1c.jpg"] },
@@ -27,15 +26,13 @@ const PRODUCTS = [
 ];
 
 
-/* ========= Utilidades ========= */
+
 const $ = sel => document.querySelector(sel);
 const $$ = sel => document.querySelectorAll(sel);
 const money = n => n.toLocaleString("es-CL", { style: "currency", currency: "CLP" });
 
-/* ========= Carrito (localStorage) ========= */
 const CART_KEY = "cart_v1";
 
-/** Lee carrito. Estructura: [{id, qty}] */
 function getCart() {
   try { return JSON.parse(localStorage.getItem(CART_KEY)) ?? []; }
   catch { return []; }
@@ -52,7 +49,6 @@ function updateCartBadge() {
   if (badge) badge.textContent = String(cartCount());
 }
 
-/*Reglas de negocio para añadir al carrito*/
 
 function addToCart(productId, qty = 1) {
   const prod = PRODUCTS.find(p => p.id === productId);
@@ -76,7 +72,6 @@ function addToCart(productId, qty = 1) {
   alert("Producto añadido al carrito.");
 }
 
-/* ========= Render Productos (grilla) ========= */
 function renderProductsGrid(containerSel = "#grid") {
   const el = $(containerSel);
   if (!el) return;
@@ -125,8 +120,7 @@ function renderenhome(containerSel1 = "#grid2") {
         `}).join("");
 }
 
-/* ========= Render Detalle ========= */
-// helper para ids (ponlo arriba del archivo si no lo tienes)
+
 const $id = (x) => document.getElementById(x);
 
 function getProductIdFromURL() {
@@ -136,25 +130,24 @@ function getProductIdFromURL() {
 }
 
 function renderProductDetail() {
-  // si no estamos en la página de detalle, salir silenciosamente
+
   if (!$id("p-title")) return;
 
   const id = getProductIdFromURL();
   const p = PRODUCTS.find(x => x.id === id) || PRODUCTS[0];
   if (!p) return;
 
-  // título, precio y texto
+
   $id("p-title").textContent = p.name;
   $id("p-price").textContent = money(p.price);
   $id("p-desc").textContent  = "Descripción breve del producto. Materiales de alta calidad, garantía y soporte. Envío a todo Chile.";
 
-  // imagen principal
   if ($id("p-main")) {
     const mainImg = (p.images && p.images[0]) ? p.images[0] : "../IMG/placeholder.jpg";
     $id("p-main").innerHTML = `<img src="${mainImg}" alt="${p.name}">`;
   }
 
-  // miniaturas
+
   if ($id("p-thumbs")) {
     const imgs = (p.images && p.images.length) ? p.images : ["../IMG/placeholder.jpg"];
     $id("p-thumbs").innerHTML = imgs.map((src, i)=> `
@@ -173,13 +166,13 @@ function renderProductDetail() {
     });
   }
 
-  // cantidad + añadir
+
   const qtyInput = $id("qty");
   if ($id("add-btn") && qtyInput) {
     $id("add-btn").onclick = () => addToCart(p.id, qtyInput.value);
   }
 
-  // migas y relacionados (si existen en el DOM)
+
   if ($id("breadcrumb-cat")) $id("breadcrumb-cat").textContent = p.category;
   if (typeof renderRelated === "function") renderRelated(p);
 }
@@ -189,13 +182,13 @@ function renderRelated(product) {
   const box = document.querySelector("#related");
   if (!box || !product) return;
 
-  // 1) Mismos de la categoría (excluyendo el actual)
+
   let rel = PRODUCTS.filter(x => x.category === product.category && x.id !== product.id);
 
-  // 2) Si no hay suficientes, rellena con otros productos (excluyendo el actual)
+
   if (rel.length < 5) {
     const extra = PRODUCTS.filter(x => x.id !== product.id && x.category !== product.category);
-    // Evita duplicados
+
     const ids = new Set(rel.map(p => p.id));
     for (const e of extra) {
       if (!ids.has(e.id)) rel.push(e);
@@ -203,10 +196,10 @@ function renderRelated(product) {
     }
   }
 
-  // 3) Baraja para que no salgan siempre los mismos
+
   rel = rel.sort(() => Math.random() - 0.5).slice(0, 5);
 
-  // 4) Render con imagen + nombre + precio + botón “Añadir”
+
   box.innerHTML = rel.map(r => {
     const img = (r.images && r.images[0]) ? r.images[0] : "../IMG/placeholder.jpg";
     return `
@@ -222,13 +215,12 @@ function renderRelated(product) {
     `;
   }).join("");
 
-  // 5) Click en “Añadir”
+
 
 }
 
 
-/* ========= Utilidades carrito extra ========= */
-// Cambiar cantidad de un item
+
 function setQty(productId, qty){
   qty = Number(qty);
   const p = PRODUCTS.find(x=>x.id===productId);
@@ -245,14 +237,14 @@ function setQty(productId, qty){
   }
 }
 
-// Quitar item del carrito
+
 function removeFromCart(productId){
   const cart = getCart().filter(i=>i.id !== productId);
   setCart(cart);
 }
 
-/* ========= Totales y cupones ========= */
-const COUPON_KEY = "cart_coupon_v1"; // opcional
+
+const COUPON_KEY = "cart_coupon_v1";
 
 function getCoupon(){ return localStorage.getItem(COUPON_KEY) || ""; }
 function setCoupon(code){
@@ -264,7 +256,7 @@ function computeTotals(cart = getCart()){
   const detailed = cart.map(it=>{
     const p = PRODUCTS.find(x=>x.id===it.id);
     return {...it, product: p, line: p.price * it.qty};
-  }).filter(x=>x.product); // por si hay IDs inválidos
+  }).filter(x=>x.product); 
 
   const subtotal = detailed.reduce((a,i)=> a + i.line, 0);
 
@@ -279,10 +271,10 @@ function computeTotals(cart = getCart()){
   return { detailed, subtotal, discount, total, code };
 }
 
-/* ========= Render del carrito ========= */
+
 function renderCart(){
   const box = document.querySelector("#cart-list");
-  if(!box) return; // no estamos en carrito.html
+  if(!box) return; 
 
   const { detailed, subtotal, discount, total, code } = computeTotals();
 
@@ -313,7 +305,7 @@ function renderCart(){
 
   }
 
-  // Totales
+
   const sumTotal = document.querySelector("#sum-total");
   const sumDisc  = document.querySelector("#sum-disc");
   const sumPay   = document.querySelector("#sum-pay");
@@ -321,11 +313,9 @@ function renderCart(){
   if (sumDisc)  sumDisc.textContent  = discount ? `- ${money(discount)}` : "-$0";
   if (sumPay)   sumPay.textContent   = money(total);
 
-  // Cupón
   const couponInput = document.querySelector("#coupon");
   if(couponInput) couponInput.value = code || "";
 
-  // Listeners de cada fila
   document.querySelectorAll(".row").forEach(r=>{
     const id = Number(r.dataset.id);
     const input = r.querySelector(".qty");
@@ -338,7 +328,7 @@ function renderCart(){
   updateCartBadge();
 }
 
-// Aplicar cupón (botón ✓)
+
 function handleCoupon(){
   const input = document.querySelector("#coupon");
   if(!input) return;
@@ -352,29 +342,74 @@ function handleCoupon(){
 document.addEventListener("DOMContentLoaded", () => {
   updateCartBadge();
 
-  // Página de productos
+
   if (document.querySelector("#grid")) {
     renderProductsGrid("#grid");
   }
-  // Página de inicio
+
   if (document.querySelector("#grid2")) {
     renderenhome("#grid2");
   }
 
-  // Página de detalle
+
   if (document.querySelector("#p-title")) {
     renderProductDetail();
   }
 
-  // Página de carrito
   if (document.querySelector("#cart-list")) {
     renderCart();
     document.querySelector("#apply-coupon")?.addEventListener("click", handleCoupon);
     document.querySelector("#pay")?.addEventListener("click", () => {
-      alert("Pago simulado");
-      // Si quieres limpiar el carrito al pagar:
-      // localStorage.removeItem("cart_v1");
-      // renderCart();
+      alert("Pago Completado. Gracias por su compra.");
+
     });
   }
 });
+/* ====== Admin helpers (con un solo app.js) ====== */
+
+// 1) expón PRODUCTS para otros scripts/páginas
+window.PRODUCTS = window.PRODUCTS || PRODUCTS;
+
+// 2) (opcional) persistir catálogo en localStorage
+const PROD_LS_KEY = "catalog_products_v1";
+
+function loadProductsFromLocalStorage() {
+  try {
+    const raw = localStorage.getItem(PROD_LS_KEY);
+    if (!raw) return;
+    const arr = JSON.parse(raw);
+    if (Array.isArray(arr)) {
+      window.PRODUCTS = arr;
+      // si usas const PRODUCTS arriba, crea un alias local:
+      // OJO: si declaraste const PRODUCTS al inicio, usa este alias en render:
+      // const PRODUCTS_ALIAS = window.PRODUCTS;
+      // y reemplaza en tus renders PRODUCTS -> (window.PRODUCTS)
+    }
+  } catch(e){ console.warn("No se pudo leer catálogo LS:", e); }
+}
+
+function saveProductsToLocalStorage() {
+  try {
+    localStorage.setItem(PROD_LS_KEY, JSON.stringify(window.PRODUCTS));
+    alert("Catálogo guardado en LocalStorage.");
+  } catch(e){ alert("No se pudo guardar catálogo."); }
+}
+
+// 3) utilidades para admin.html
+window.admin = {
+  getProducts: () => window.PRODUCTS,
+  setProducts: (arr) => { if (Array.isArray(arr)) window.PRODUCTS = arr; },
+  saveLocal: saveProductsToLocalStorage,
+  loadLocal: loadProductsFromLocalStorage,
+  exportJSON: () => {
+    const blob = new Blob([JSON.stringify(window.PRODUCTS, null, 2)], {type:"application/json"});
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "products.json";
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
+};
+
+// 4) si quieres que el catálogo se sobreescriba automáticamente con lo del LS al iniciar:
+loadProductsFromLocalStorage();
