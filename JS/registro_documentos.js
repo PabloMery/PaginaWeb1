@@ -19,11 +19,11 @@ const comunasPorRegion = {
     "16": ["Punta Arenas", "Puerto Natales"]
 };
 
-// Elementos del DOM
+
 const selectRegion = document.getElementById("region");
 const selectComuna = document.getElementById("comuna");
 
-// Evento para actualizar comunas al cambiar región
+
 selectRegion.addEventListener("change", () => {
     const regionSeleccionada = selectRegion.value;
 
@@ -33,7 +33,7 @@ selectRegion.addEventListener("change", () => {
     if (comunasPorRegion[regionSeleccionada]) {
         comunasPorRegion[regionSeleccionada].forEach(comuna => {
             const option = document.createElement("option");
-            option.value = comuna.toLowerCase().replace(/ /g, "_"); // valor en minúscula y sin espacios
+            option.value = comuna.toLowerCase().replace(/ /g, "_"); 
             option.text = comuna;
             selectComuna.appendChild(option);
         });
@@ -70,7 +70,7 @@ document.getElementById("nombre").addEventListener("keyup",()=>{
 
 document.getElementById("correo").addEventListener("keyup", () => {
     var correo = document.getElementById("correo").value;
-    var parrafo = document.getElementById("parrafo_2"); // Asegúrate de tener un <p id="parrafo_2"></p>
+    var parrafo = document.getElementById("parrafo_2"); 
     var valido = correo.endsWith("@gmail.com") || correo.endsWith("@duocuc.cl") || correo.endsWith("@profesor.duoc.cl");
 
     if (correo.length === 0) {
@@ -97,9 +97,9 @@ document.getElementById("correo").addEventListener("keyup", () => {
 
 document.getElementById("contrasena").addEventListener("keyup", () => {
     var pass = document.getElementById("contrasena").value;
-    var parrafo = document.getElementById("parrafo_3"); // Asegúrate de tener un <p id="parrafo_pass"></p>
+    var parrafo = document.getElementById("parrafo_3"); 
 
-    // Expresiones regulares para validar
+    
     var tieneMayuscula = /[A-Z]/.test(pass);  // Al menos una letra mayúscula
     var tieneNumero = /[0-9]/.test(pass);     // Al menos un número
 

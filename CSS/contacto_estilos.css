@@ -198,20 +198,20 @@ textarea { min-height: 120px; resize: vertical; }
 }
 
 /* Media Queries para responsive iPhone */
-/* Media Queries para iPhone: mantener todo en fila como en primer HTML */
+
 @media (max-width: 576px) {
     /* Franja superior: mantener en fila */
     .top__row {
-        flex-direction: row;   /* fila, no columna */
+        flex-direction: row;   
         align-items: center;
     }
 
     /* Header / menú principal */
     .nav__links {
-        flex-wrap: wrap;       /* permite que los links se ajusten en varias filas si no caben */
+        flex-wrap: wrap;       
     }
 
-    /* Carrito a la derecha */
+    /* Carrito */
     .nav__actions {
         margin-left: auto;
         margin-top: 8px;       /* separa un poco del menú */

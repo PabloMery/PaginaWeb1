@@ -27,12 +27,12 @@
 
 
 .boton-abajo {
-    background-color: white !important; /* Fondo blanco */
-    color: black !important;            /* Texto negro */
-    border: 2px solid black;            /* Borde negro */
-    padding: 12px 40px;                 /* Más alto y más ancho */
-    font-size: 16px;                    /* Texto más grande */
-    border-radius: 8px;                 /* Bordes redondeados opcional */
+    background-color: white !important; 
+    color: black !important;            
+    border: 2px solid black;            
+    padding: 12px 40px;                 
+    font-size: 16px;                    
+    border-radius: 8px;                 
   }
 
 
@@ -45,10 +45,10 @@
 
 .tiny-input
 {
-    padding-top: 0.1rem;     /* más reducido que el sm */
+    padding-top: 0.1rem;     
     padding-bottom: 0.1rem;
-    font-size: 0.8rem;       /* texto más pequeño */
-    height: auto;            /* evita que bootstrap lo fuerce */
+    font-size: 0.8rem;       
+    height: auto;            
 }
 
 .cuestionario
@@ -92,8 +92,8 @@
    padding: 12px 40px;
    font-size: 16px;
    border-radius: 8px;
-   display: block;       /* para poder centrarlo */
-   margin: 40px auto 0;  /* separa del contenido y lo centra horizontalmente */
+   display: block;       
+   margin: 40px auto 0;  
 }
 
 a{color:inherit;text-decoration:none} a:hover{color:var(--brand)} .wrap{max-width:var(--max);margin:auto;padding:0 1rem}
