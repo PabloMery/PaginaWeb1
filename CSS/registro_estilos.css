@@ -15,7 +15,8 @@
 } 
 
 
-
+.nav__links a[aria-current="page"]{
+    background:#f3f4f6}
 
 .bajar_row1
 {

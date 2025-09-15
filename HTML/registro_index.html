@@ -9,35 +9,29 @@
 </head>
 <body>
 
-  <!-- Franja superior -->
   <div class="top">
     <div class="wrap top__row" aria-label="Accesos rápidos">
       <span class="muted">Bienvenido(a)</span>
       <span class="spacer"></span>
-      <a href="#">Registrar usuario</a>
+      <a href="registro_index.html">Registrar usuario</a>
     </div>
   </div>
-  <!-- Encabezado / navegación -->
   <header role="banner">
     <div class="wrap nav">
       <a class="brand" href="#" aria-label="Inicio">
         <span class="brand__dot" aria-hidden="true"></span>
-        <span>Tangana</span>
+        <span>TANGANA</span>
       </a>
 
       <nav class="nav__links" aria-label="Principal">
-        <a href="#" aria-current="page">Home</a>
+        <a href="home.html">Home</a>
         <a href="productos.html ">Productos</a>
-        <a href="#">Nosotros</a>
+        <a href="nosotros_index.html">Nosotros</a>
         <a href="../HTML/blog.html">Blog</a>
-        <a href="#">Contacto</a>
+        <a href="contacto_index.html">Contacto</a>
       </nav>
 
-      <div class="nav__actions">
-        <a class="cart" href="carrito.html" aria-label="Carrito">
-          🛒 <span>Carrito</span> <span class="cart__badge" id="cart-count">0</span>
-        </a>
-      </div>
+
     </div>
   </header>
 
@@ -47,20 +41,16 @@
 
 
 
-<!-- CUERPO -->
 <div class="container my-5">
   <div class="row justify-content-center">
     <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 mx-auto">
 
-      <!-- Contenedor principal del formulario -->
       <div class="cuestionario p-3">
 
-        <!-- Título -->
         <div class="titulo mb-3 text-center">
           <h1 class="texto_titulo">Registro de usuarios</h1>
         </div>
 
-        <!-- Formulario -->
         <form action="#" method="get">
 
           <div class="mb-3">
@@ -92,7 +82,6 @@
             <input type="text" class="form-control tiny-input" id="edad" placeholder="20">
           </div>
 
-          <!-- Select Región y Comuna -->
           <div class="row g-2 mb-3 justify-content-center">
             <div class="col-12 col-sm-6 col-md-6">
               <select id="region" class="form-select form-select-sm w-100">
@@ -122,11 +111,10 @@
             </div>
           </div>
 
-          <!-- Botón Registrar -->
           <button type="button" id="btnRegistrar" class="btn btn-primary boton-abajo w-100">Registrar</button>
           <p id="parrafo_5"></p>
         </form>
-      </div> <!-- fin cuestionario -->
+      </div> 
 
     </div>
   </div>

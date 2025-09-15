@@ -32,79 +32,19 @@ a:hover {
 }
 
 /* Franja superior */
-.top {
-  background: #e5e7eb;
-  border-bottom: 1px solid var(--border);
-}
-.top__row {
-  display: flex;
-  align-items: center;
-  gap: .75rem;
-  padding: .6rem 0;
-  font-size: .9rem;
-  color: #374151;
-}
-.spacer {
-  flex: 1;
-}
-.top__sep {
-  opacity: .4;
-  margin: 0 .5rem;
-}
-
-/* Encabezado */
-header {
-  background: #fff;
-  border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-.nav {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: .9rem 0;
-}
-
-/* Marca */
-.brand {
-  display: flex;
-  align-items: center;
-  gap: .6rem;
-  font-weight: 700;
-}
-.brand__dot {
-  width: .8rem;
-  height: .8rem;
-  border-radius: 4px; /* cuadrado (antes era círculo) */
-  background: #111;
-}
-
-/* Navegación */
-.nav__links {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-.nav__links a[aria-current=page] {
-  background: #f3f4f6;
-  border-radius: .6rem;
-  padding: .35rem .6rem;
-}
-
-/* Carrito */
-.nav__actions {
-  margin-left: auto;
-}
-.cart__badge {
-  background: #111;
-  color: #fff;
-  border-radius: 999px;
-  padding: .05rem .45rem;
-  font-size: .78rem;
-}
-
+.top{background:#e5e7eb; border-bottom:1px solid var(--border)}
+.top__row{display:flex; align-items:center; gap:.75rem; padding:.6rem 0; font-size:.9rem; color:#374151}
+.spacer{flex:1}
+.top__sep{opacity:.4; margin:0 .5rem}
+header{background:#fff; border-bottom:1px solid var(--border); position:sticky; top:0; z-index:10}
+.nav{display:flex; align-items:center; gap:1rem; padding:.9rem 0}
+.brand{display:flex; align-items:center; gap:.6rem; font-weight:700}
+.brand__dot{width:.8rem; height:.8rem; border-radius:999px; background:#111}
+.nav__links{display:flex; gap:1rem; flex-wrap:wrap}
+.nav__links a{padding:.35rem .6rem; border-radius:.6rem}
+.nav__links a[aria-current="page"]{background:#f3f4f6}
+.nav__actions{margin-left:auto; display:flex; align-items:center; gap:1rem}
+.cart__badge{background:#111; color:#fff; border-radius:999px; padding:.05rem .45rem; font-size:.78rem}
 
 
 body {
