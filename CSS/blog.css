@@ -75,6 +75,24 @@ header{background:#fff;border-bottom:1px solid var(--border);position:sticky;top
   object-position: 50% 25%; /* centra el recorte; ajusta si quieres otro foco */
 }
 
+/* Enfocar el texto del banner de Blog Detalle 2 */
+.post-hero--tangana img{
+  object-fit: cover;
+  /* mueve el encuadre hacia la izquierda y un pelín abajo */
+  object-position: 28% 52%;
+}
+
+/* Si en móvil necesitas mostrar un poquito más a la izquierda */
+@media (max-width: 900px){
+  .post-hero--tangana img{ object-position: 20% 50%; }
+}
+
+/* (opcional) si aún queda apretado, haz este banner un poco más alto */
+.post-hero--tangana{
+  /* sube un poco la altura sólo para este banner */
+  height: clamp(300px, 38vw, 460px);
+}
+
 /* Responsive */
 @media (max-width:900px){
   .post-card{grid-template-columns:1fr}

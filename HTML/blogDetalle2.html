@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Detalle 2 - Site Name</title>
-    <link rel="stylesheet" href="../CSS/blog.css"/>
-    <script src="../JS/app.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog Detalle 2 - Site Name</title>
+  <link rel="stylesheet" href="../CSS/blog.css"/>
+  <script src="../JS/app.js" defer></script>
 </head>
 <body>
   <!-- Franja superior -->
@@ -29,7 +29,7 @@
 
       <nav class="nav__links" aria-label="Principal">
         <a href="#" aria-current="page">Home</a>
-        <a href="productos.html ">Productos</a>
+        <a href="productos.html">Productos</a>
         <a href="#">Nosotros</a>
         <a href="blog.html">Blog</a>
         <a href="#">Contacto</a>
@@ -42,9 +42,18 @@
       </div>
     </div>
   </header>
-<main class="wrap">
+
+  <main class="wrap">
     <article class="post-card" style="grid-template-columns:1fr;">
-      <div class="post-img" aria-hidden="true" style="min-height:260px;">Imagen</div>
+      <!-- BANNER (igual que blogDetalle1) -->
+      <figure class="post-img post-hero post-hero--tangana">
+        <img
+          src="../IMG/Blog/BannerBlogSorteoNoticia2.png"
+          alt="Banner de la campaña: ¡Descuentos Tangana!"
+          loading="eager"
+        />
+      </figure>
+
       <div class="post-body">
         <h1 class="post-title">¡Prepárate para ser ciclista!</h1>
         <div class="post-meta">Anuncio de tienda — 2025</div>
@@ -72,6 +81,6 @@
         <p><a class="btn-outline" href="blog.html">← Volver al Blog</a></p>
       </div>
     </article>
-</main>
+  </main>
 </body>
 </html>
