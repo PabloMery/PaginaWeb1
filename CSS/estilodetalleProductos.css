@@ -32,7 +32,7 @@ input[type=number]{width:80px;padding:.4rem;border:1px solid var(--border);borde
 .rel__price{font-weight:700}
 .rel__add{border:1px solid var(--brand);background:var(--brand);color:#fff;padding:.35rem .6rem;border-radius:.5rem;font-weight:600}
 @media (max-width:900px){.rel__list{grid-template-columns:repeat(2,1fr)}}
-/* Contenedor de la imagen principal */
+
 #p-main{
   aspect-ratio: 4 / 3;
   background:#f3f4f6;
@@ -41,16 +41,15 @@ input[type=number]{width:80px;padding:.4rem;border:1px solid var(--border);borde
   display:grid; place-items:center;
 }
 
-/* La imagen principal rellena sin deformarse */
+
 #p-main img{
   width:100%; height:100%;
-  object-fit: contain;   /* usa 'cover' si prefieres recorte */
+  object-fit: contain;   
   display:block;
 }
 
-/* Miniaturas con <img> reales (ya tienes .thumb, sumamos esto) */
 .thumbs .thumb{
-  width:72px; height:56px;           /* 4:3 aprox */
+  width:72px; height:56px;         
   padding:0; overflow:hidden;
   display:grid; place-items:center;
 }
