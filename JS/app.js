@@ -175,6 +175,13 @@ function renderProductDetail() {
 
   if ($id("breadcrumb-cat")) $id("breadcrumb-cat").textContent = p.category;
   if (typeof renderRelated === "function") renderRelated(p);
+
+  const commentsLink = document.createElement("a");
+  commentsLink.href = `comentarios.html?id=${p.id}`;
+  commentsLink.className = "pill";
+  commentsLink.textContent = "Ver comentarios";
+  document.querySelector(".panel.right")?.appendChild(commentsLink);
+
 }
 
 
@@ -365,12 +372,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
-/* ====== Admin helpers (con un solo app.js) ====== */
 
-// 1) expón PRODUCTS para otros scripts/páginas
 window.PRODUCTS = window.PRODUCTS || PRODUCTS;
 
-// 2) (opcional) persistir catálogo en localStorage
 const PROD_LS_KEY = "catalog_products_v1";
 
 function loadProductsFromLocalStorage() {
@@ -380,10 +384,7 @@ function loadProductsFromLocalStorage() {
     const arr = JSON.parse(raw);
     if (Array.isArray(arr)) {
       window.PRODUCTS = arr;
-      // si usas const PRODUCTS arriba, crea un alias local:
-      // OJO: si declaraste const PRODUCTS al inicio, usa este alias en render:
-      // const PRODUCTS_ALIAS = window.PRODUCTS;
-      // y reemplaza en tus renders PRODUCTS -> (window.PRODUCTS)
+
     }
   } catch(e){ console.warn("No se pudo leer catálogo LS:", e); }
 }
@@ -395,7 +396,6 @@ function saveProductsToLocalStorage() {
   } catch(e){ alert("No se pudo guardar catálogo."); }
 }
 
-// 3) utilidades para admin.html
 window.admin = {
   getProducts: () => window.PRODUCTS,
   setProducts: (arr) => { if (Array.isArray(arr)) window.PRODUCTS = arr; },
@@ -411,5 +411,174 @@ window.admin = {
   }
 };
 
-// 4) si quieres que el catálogo se sobreescriba automáticamente con lo del LS al iniciar:
 loadProductsFromLocalStorage();
+// son para comentarios html
+
+const CMT_KEY = "comments_v1";
+
+const escapeHtml = (s="") => String(s).replace(/[&<>"']/g, m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
+const fmtDate = (d) => new Date(d).toLocaleString("es-CL", { dateStyle:"medium", timeStyle:"short" });
+
+function getProducts() {
+  // Usa PRODUCTS de tu app si existe; si no, fallback simple
+  if (Array.isArray(window.PRODUCTS) && window.PRODUCTS.length) return window.PRODUCTS;
+  return [{id:0, name:"(Sin catálogo)"}];
+}
+function getProductIdFromURL() {
+  const id = Number(new URLSearchParams(location.search).get("id"));
+  return Number.isInteger(id) && id>0 ? id : null;
+}
+
+// ===== Storage =====
+function readAllComments() {
+  try { return JSON.parse(localStorage.getItem(CMT_KEY)) ?? []; }
+  catch { return []; }
+}
+function writeAllComments(arr) {
+  try { localStorage.setItem(CMT_KEY, JSON.stringify(arr)); }
+  catch (e) { alert("No se pudieron guardar los comentarios."); console.error(e); }
+}
+function readCommentsFor(productId) {
+  return readAllComments().filter(c => c.productId === productId);
+}
+function addComment(obj) {
+  const all = readAllComments();
+  const id = all.length ? Math.max(...all.map(c=>c.id||0)) + 1 : 1;
+  all.push({ id, ...obj, createdAt: Date.now() });
+  writeAllComments(all);
+}
+function clearCommentsFor(productId){
+  writeAllComments(readAllComments().filter(c => c.productId !== productId));
+}
+
+// ===== UI =====
+function populateProductSelect() {
+  const sel = $("#prodSel");
+  const prods = getProducts();
+
+  if (!sel) return;
+
+  if (!Array.isArray(prods) || !prods.length) {
+    console.warn("[Comentarios] No hay PRODUCTS. ¿app.js cargó primero?");
+    sel.innerHTML = `<option value="">(Sin catálogo)</option>`;
+    return;
+  }
+
+  sel.innerHTML = prods.map(p =>
+    `<option value="${p.id}">${escapeHtml(p.name)}</option>`
+  ).join("");
+
+  const fromURL = getProductIdFromURL();
+  if (fromURL && prods.some(p => p.id === fromURL)) {
+    sel.value = String(fromURL);
+  } else {
+    sel.value = String(prods[0].id);
+  }
+}
+
+
+
+function renderStarsContainer(container, current=0) {
+  container.innerHTML = "";
+  for (let i=1; i<=5; i++){
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "starBtn" + (i<=current ? " active" : "");
+    btn.dataset.value = i;
+    btn.innerHTML = i<=current ? "★" : "☆";
+    btn.addEventListener("click", ()=>{
+      renderStarsContainer(container, i);
+      container.dataset.value = i;
+    });
+    container.appendChild(btn);
+  }
+  container.dataset.value = current;
+}
+
+function renderList(productId) {
+  const list = $("#list");
+  const empty = $("#empty");
+
+  const data = readCommentsFor(productId)
+    .sort((a,b)=> b.createdAt - a.createdAt);
+
+  if (!data.length) {
+    list.innerHTML = "";
+    empty.hidden = false;
+  } else {
+    empty.hidden = true;
+    list.innerHTML = data.map(c => `
+      <article class="item">
+        <div class="avatar">${escapeHtml((c.name||"?")[0]?.toUpperCase() || "?")}</div>
+        <div>
+          <div class="meta">
+            <span class="name">${escapeHtml(c.name || "Anónimo")}</span>
+            <span class="badge">★ ${Number(c.rating||0).toFixed(1)}</span>
+            <span class="date">${fmtDate(c.createdAt)}</span>
+          </div>
+          <p class="text">${escapeHtml(c.text||"")}</p>
+        </div>
+      </article>
+    `).join("");
+  }
+
+  // Stats
+  const count = data.length;
+  const avg = count ? (data.reduce((a,c)=>a+Number(c.rating||0),0)/count) : 0;
+  $("#count").textContent = `${count} comentario${count===1?"":"s"}`;
+  $("#avgStars").textContent = `★ ${avg.toFixed(1)}`;
+}
+
+function currentProductId() {
+  return Number($("#prodSel").value);
+}
+
+// ===== Boot =====
+document.addEventListener("DOMContentLoaded", ()=>{
+  populateProductSelect();
+  renderStarsContainer($("#stars"), 5);
+
+  const prods = getProducts();
+  const fromURL = getProductIdFromURL();
+  let initialId = null;
+
+  if (fromURL && prods.some(p => p.id === fromURL)) {
+    initialId = fromURL;
+  } else if ($("#prodSel")?.value) {
+    initialId = Number($("#prodSel").value);
+  }
+
+  if (!initialId) {
+    $("#empty").hidden = false;
+  } else {
+    $("#prodSel").value = String(initialId);
+    renderList(initialId);
+  }
+
+  $("#prodSel").addEventListener("change", ()=>{
+    const pid = Number($("#prodSel").value);
+    renderList(pid);
+  });
+
+  $("#form").addEventListener("submit", (e)=>{
+    e.preventDefault();
+    const productId = Number($("#prodSel").value);
+    const name = $("#name").value.trim() || "Anónimo";
+    const rating = Number($("#stars").dataset.value || 5);
+    const text = $("#text").value.trim();
+    if (!text) { alert("Escribe un comentario."); return; }
+    addComment({ productId, name, rating, text });
+    $("#text").value = "";
+    renderStarsContainer($("#stars"), 5);
+    renderList(productId);
+  });
+
+  $("#clearAll").addEventListener("click", ()=>{
+    const productId = Number($("#prodSel").value);
+    if (productId && confirm("¿Eliminar todos los comentarios de este producto?")) {
+      clearCommentsFor(productId);
+      renderList(productId);
+    }
+  });
+});
+

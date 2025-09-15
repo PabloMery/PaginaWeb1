@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Comentarios de productos</title>
+  <link rel="stylesheet" href="../CSS/estilocomentarios.css">
+</head>
+<body>
+  <!-- Top / Nav opcionales (si los quieres, copia los mismos del resto) -->
+  <header role="banner">
+    <div class="wrap nav">
+      <a class="brand" href="#" aria-label="Inicio">
+        <span class="brand__dot" aria-hidden="true"></span>
+        <span>TANGANA</span>
+      </a>
+
+      <nav class="nav__links" aria-label="Principal">
+        <a href="home.html" >Home</a>
+        <a href="productos.html ">Productos</a>
+        <a href="nosotros_index.html">Nosotros</a>
+        <a href="blog.html">Blog</a>
+        <a href="contacto_index.html">Contacto</a>
+      </nav>
+
+      <div class="nav__actions">
+        <a class="cart" href="carrito.html" aria-label="Carrito">
+          🛒 <span>Carrito</span> <span class="cart__badge" id="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+  <main class="wrap">
+    <h1 class="title">Comentarios de clientes</h1>
+
+    <!-- Filtro por producto -->
+    <section class="card">
+      <div class="row row-gap">
+        <label class="lbl" for="prodSel">Producto</label>
+        <select id="prodSel"></select>
+
+        <div class="stats">
+          <span id="avgStars" class="pill">★ 0.0</span>
+          <span id="count" class="muted">0 comentarios</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lista -->
+    <section class="card">
+      <div id="list" class="list"></div>
+      <div id="empty" class="empty muted" hidden>No hay comentarios para este producto.</div>
+    </section>
+
+    <!-- Nuevo comentario -->
+    <section class="card">
+      <h2>Escribe tu comentario</h2>
+      <form id="form" class="form">
+        <div class="field">
+          <label for="name">Tu nombre</label>
+          <input id="name" type="text" placeholder="Ej: Camila" required>
+        </div>
+
+        <div class="field">
+          <label>Calificación</label>
+          <div id="stars" class="stars" role="radiogroup" aria-label="Calificación">
+            <!-- botones 1..5 generados por JS -->
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="text">Comentario</label>
+          <textarea id="text" rows="4" placeholder="¿Qué te pareció el producto?" required></textarea>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn">Publicar</button>
+          <button id="clearAll" type="button" class="btn danger">Borrar todos (solo este producto)</button>
+        </div>
+      </form>
+      <p class="help muted">Los comentarios se guardan en tu navegador (localStorage).</p>
+    </section>
+  </main>
+
+    <script src="../JS/app.js" defer></script>
+</body>
+</html>
