@@ -47,7 +47,7 @@ document.getElementById("email").addEventListener("keyup", () => {
 
     // Condiciones de dominio permitidos
     const valido = correo.endsWith("@gmail.com") ||
-                   correo.endsWith("@duocuc.cl") ||
+                   correo.endsWith("@duoc.cl") ||
                    correo.endsWith("@profesor.duoc.cl");
 
     if (correo.length === 0) {
@@ -66,7 +66,7 @@ document.getElementById("email").addEventListener("keyup", () => {
         // Inválido por dominio incorrecto
         correoInput.classList.add("is-invalid");
         correoInput.classList.remove("is-valid");
-        parrafo.innerHTML = "El correo debe terminar en @gmail.com, @duocuc.cl o @profesor.duoc.cl";
+        parrafo.innerHTML = "El correo debe terminar en @gmail.com, @duoc.cl o @profesor.duoc.cl";
         parrafo.style.color = "red";
     }
     else {
