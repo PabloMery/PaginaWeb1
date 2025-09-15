@@ -107,7 +107,6 @@ header{
     letter-spacing:.04em
 }
 
-/* Grid de productos */
 .grid{
     display:grid;
     gap:1rem;

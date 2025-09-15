@@ -51,7 +51,6 @@ main { padding: 36px 0 80px; min-height: 60vh; }
 }
 .company-name { font-size: 28px; margin-bottom: 18px; font-weight: 600; }
 
-/* Formulario */
 .contact-wrap {
   max-width: 640px;
   margin: 0 auto;
@@ -115,27 +114,23 @@ textarea { min-height: 120px; resize: vertical; }
   transform: translateY(-2px);
 }
 
-/* Media Queries para responsive iPhone */
 
 @media (max-width: 576px) {
-    /* Franja superior: mantener en fila */
     .top__row {
         flex-direction: row;   
         align-items: center;
     }
 
-    /* Header / menú principal */
     .nav__links {
         flex-wrap: wrap;       
     }
 
-    /* Carrito */
     .nav__actions {
         margin-left: auto;
-        margin-top: 8px;       /* separa un poco del menú */
+        margin-top: 8px;      
     }
 
     .cart span {
-        display: inline;        /* mostrar texto del carrito */
+        display: inline;     
     }
 }

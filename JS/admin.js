@@ -1,13 +1,10 @@
-// Admin UI independiente: usa window.PRODUCTS que trae app.js
 (() => {
   const LS_KEY = "admin_products_v1";
   const $ = s => document.querySelector(s);
   const $$ = s => document.querySelectorAll(s);
 
-  // Estado
   let products = Array.isArray(window.PRODUCTS) ? clone(window.PRODUCTS) : [];
 
-  // Utils
   function clone(x){ return JSON.parse(JSON.stringify(x)); }
   function setStatus(msg, ok=true){
     const el = $("#status"); if (!el) return;
@@ -29,7 +26,6 @@
     return String(s).replace(/[&<>"']/g, m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
   }
 
-  // Persistencia local (opcional)
   function saveLocal(){
     try{
       localStorage.setItem(LS_KEY, JSON.stringify(products));
@@ -49,7 +45,6 @@
     }
   }
 
-  // Render tabla
   function render(){
     const tb = $("#tbody"); if (!tb) return;
     tb.innerHTML = products.map(p => `
@@ -67,7 +62,6 @@
       </tr>
     `).join("");
 
-    // Listeners por fila
     $$("#tbody tr").forEach(tr=>{
       const originalId = Number(tr.dataset.id);
       const inputs = tr.querySelectorAll("input,textarea");
@@ -102,7 +96,6 @@
     });
   }
 
-  // Botones
   $("#btnAdd").addEventListener("click", ()=>{
     const id = nextId(products);
     products.push({id, name:"Nuevo producto", category:"", price:0, stock:0, images:[]});
@@ -136,12 +129,7 @@
     r.readAsText(file, "utf-8");
   });
 
-  // Boot
   render();
 
-  // 💡 Si quieres “aplicar” los cambios del admin al sitio:
-  // copia el JSON exportado a mano dentro de tu app.js (reemplazando la lista)
-  // o programa un “publicar” que haga:
-  //   window.PRODUCTS = products;
-  // y luego lo guardas a LocalStorage/archivo según tu flujo.
+
 })();

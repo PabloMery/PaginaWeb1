@@ -416,7 +416,6 @@ window.admin = {
 };
 
 loadProductsFromLocalStorage();
-// son para comentarios html
 
 const CMT_KEY = "comments_v1";
 
@@ -424,7 +423,6 @@ const escapeHtml = (s="") => String(s).replace(/[&<>"']/g, m=>({"&":"&amp;","<":
 const fmtDate = (d) => new Date(d).toLocaleString("es-CL", { dateStyle:"medium", timeStyle:"short" });
 
 function getProducts() {
-  // Usa PRODUCTS de tu app si existe; si no, fallback simple
   if (Array.isArray(window.PRODUCTS) && window.PRODUCTS.length) return window.PRODUCTS;
   return [{id:0, name:"(Sin catálogo)"}];
 }
@@ -433,7 +431,6 @@ function getProductIdFromURL() {
   return Number.isInteger(id) && id>0 ? id : null;
 }
 
-// ===== Storage =====
 function readAllComments() {
   try { return JSON.parse(localStorage.getItem(CMT_KEY)) ?? []; }
   catch { return []; }
@@ -526,7 +523,6 @@ function renderList(productId) {
     `).join("");
   }
 
-  // Stats
   const count = data.length;
   const avg = count ? (data.reduce((a,c)=>a+Number(c.rating||0),0)/count) : 0;
   $("#count").textContent = `${count} comentario${count===1?"":"s"}`;

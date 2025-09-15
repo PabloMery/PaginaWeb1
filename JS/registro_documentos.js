@@ -1,5 +1,3 @@
-//Mostrar comunas de acuerdo a region//
-// Diccionario de comunas por región
 const comunasPorRegion = {
     "1": ["Arica", "Camarones", "Putre", "General Lagos"],
     "2": ["Iquique", "Alto Hospicio", "Pozo Almonte"],
@@ -27,7 +25,6 @@ const selectComuna = document.getElementById("comuna");
 selectRegion.addEventListener("change", () => {
     const regionSeleccionada = selectRegion.value;
 
-    // Limpiar comunas actuales
     selectComuna.innerHTML = '<option value="" selected disabled>Seleccione comuna</option>';
 
     if (comunasPorRegion[regionSeleccionada]) {
@@ -42,7 +39,6 @@ selectRegion.addEventListener("change", () => {
 
 
 
-//Verificadores//
 document.getElementById("nombre").addEventListener("keyup",()=>{
     var numero=document.getElementById("nombre").value.length;
     if(numero < 5 && numero >0 || numero > 15)
@@ -74,19 +70,16 @@ document.getElementById("correo").addEventListener("keyup", () => {
     var valido = correo.endsWith("@gmail.com") || correo.endsWith("@duocuc.cl") || correo.endsWith("@profesor.duoc.cl");
 
     if (correo.length === 0) {
-        // Si no hay texto, quitar clases y borrar mensaje
         document.getElementById("correo").classList.remove("is-valid", "is-invalid");
         parrafo.innerHTML = "";
     } 
     else if (!valido) {
-        // Si no termina en los dominios correctos
         document.getElementById("correo").classList.add("is-invalid");
         document.getElementById("correo").classList.remove("is-valid");
         parrafo.innerHTML = "El correo debe terminar en @gmail.com, @duocuc.cl o @profesor.duoc.cl";
         parrafo.style.color = "red";
     } 
     else {
-        // Si el correo es válido
         document.getElementById("correo").classList.add("is-valid");
         document.getElementById("correo").classList.remove("is-invalid");
         parrafo.innerHTML = "Correo válido";
@@ -100,23 +93,20 @@ document.getElementById("contrasena").addEventListener("keyup", () => {
     var parrafo = document.getElementById("parrafo_3"); 
 
     
-    var tieneMayuscula = /[A-Z]/.test(pass);  // Al menos una letra mayúscula
-    var tieneNumero = /[0-9]/.test(pass);     // Al menos un número
+    var tieneMayuscula = /[A-Z]/.test(pass);  
+    var tieneNumero = /[0-9]/.test(pass);     
 
     if (pass.length === 0) {
-        // Si no hay texto, quitar clases y borrar mensaje
         document.getElementById("contrasena").classList.remove("is-valid", "is-invalid");
         parrafo.innerHTML = "";
     } 
     else if (!tieneMayuscula || !tieneNumero) {
-        // Si no cumple con al menos una mayúscula y un número
         document.getElementById("contrasena").classList.add("is-invalid");
         document.getElementById("contrasena").classList.remove("is-valid");
         parrafo.innerHTML = "La contraseña debe tener al menos una letra mayúscula y un número";
         parrafo.style.color = "red";
     } 
     else {
-        // Si la contraseña es válida
         document.getElementById("contrasena").classList.add("is-valid");
         document.getElementById("contrasena").classList.remove("is-invalid");
         parrafo.innerHTML = "Contraseña válida";
@@ -128,13 +118,12 @@ document.getElementById("contrasena").addEventListener("keyup", () => {
 
 
 
-// Validación de la contraseña principal
 document.getElementById("contrasena").addEventListener("keyup", () => {
     var pass = document.getElementById("contrasena").value;
-    var parrafo = document.getElementById("parrafo_3"); // Mensaje para contraseña principal
+    var parrafo = document.getElementById("parrafo_3"); 
 
-    var tieneMayuscula = /[A-Z]/.test(pass);  // Al menos una letra mayúscula
-    var tieneNumero = /[0-9]/.test(pass);     // Al menos un número
+    var tieneMayuscula = /[A-Z]/.test(pass); 
+    var tieneNumero = /[0-9]/.test(pass);  
 
     if (pass.length === 0) {
         document.getElementById("contrasena").classList.remove("is-valid", "is-invalid");
@@ -153,17 +142,17 @@ document.getElementById("contrasena").addEventListener("keyup", () => {
         parrafo.style.color = "green";
     }
 
-    // También validamos la confirmación si ya tiene valor
+
     validarConfirmacion();
 });
 
-// Validación del campo de confirmación
+
 document.getElementById("confi_contrasena").addEventListener("keyup", validarConfirmacion);
 
 function validarConfirmacion() {
     var pass = document.getElementById("contrasena").value;
     var conf = document.getElementById("confi_contrasena").value;
-    var parrafoConf = document.getElementById("parrafo_4"); // Mensaje para confirmación
+    var parrafoConf = document.getElementById("parrafo_4"); 
 
     if (conf.length === 0) {
         document.getElementById("confi_contrasena").classList.remove("is-valid", "is-invalid");

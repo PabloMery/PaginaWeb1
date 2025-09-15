@@ -42,35 +42,29 @@ document.getElementById("email").addEventListener("keyup", () => {
     const correo = correoInput.value;
     const parrafo = document.getElementById("parrafo_2");
 
-    // Posición de la arroba
     const atIndex = correo.indexOf("@");
 
-    // Condiciones de dominio permitidos
     const valido = correo.endsWith("@gmail.com") ||
                    correo.endsWith("@duoc.cl") ||
                    correo.endsWith("@profesor.duoc.cl");
 
     if (correo.length === 0) {
-        // Si no hay texto, quitar validaciones y mensaje
         correoInput.classList.remove("is-valid", "is-invalid");
         parrafo.innerHTML = "";
     } 
     else if (correo.length > 100 || atIndex <= 0) {
-        // Inválido por largo o por no tener texto antes del @
         correoInput.classList.add("is-invalid");
         correoInput.classList.remove("is-valid");
         parrafo.innerHTML = "El correo no puede superar 100 caracteres y debe tener al menos un caracter antes de @.";
         parrafo.style.color = "red";
     } 
     else if (!valido) {
-        // Inválido por dominio incorrecto
         correoInput.classList.add("is-invalid");
         correoInput.classList.remove("is-valid");
         parrafo.innerHTML = "El correo debe terminar en @gmail.com, @duoc.cl o @profesor.duoc.cl";
         parrafo.style.color = "red";
     }
     else {
-        // Válido
         correoInput.classList.add("is-valid");
         correoInput.classList.remove("is-invalid");
         parrafo.innerHTML = "";
