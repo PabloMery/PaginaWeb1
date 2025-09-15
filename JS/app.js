@@ -72,6 +72,10 @@ function addToCart(productId, qty = 1) {
   alert("Producto añadido al carrito.");
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  if (typeof updateCartBadge === "function") updateCartBadge();
+});
+
 function renderProductsGrid(containerSel = "#grid") {
   const el = $(containerSel);
   if (!el) return;
