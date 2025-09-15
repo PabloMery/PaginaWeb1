@@ -1,6 +1,3 @@
-// ===== Listado de posts del blog =====
-// Las páginas de detalle están en archivos HTML aparte.
-
 const POSTS = [
   {
     id: 1,
@@ -20,7 +17,7 @@ const POSTS = [
       "Por el triunfo de Pablo Sánchez, pronto liberaremos descuentos para la Bicicleta BMX Wtp Trust Cs Rsd Matt Black. Mantente atento a tienda, web y redes.",
     enlace: "blogDetalle2.html",
     imgAlt: "Promoción de productos para ciclismo",
-    img: "../IMG/Blog/Blog2Sorteo.png"  // si luego quieres imagen para este también
+    img: "../IMG/Blog/Blog2Sorteo.png"
   },
 ];
 
@@ -50,7 +47,6 @@ function renderBlogList() {
     </article>
   `).join("");
 
-  // Fallback: si alguna imagen falla al cargar, mostramos el placeholder "Imagen"
   document.querySelectorAll(".post-img img").forEach((img) => {
     img.addEventListener("error", () => {
       const fig = img.parentElement;
@@ -59,7 +55,6 @@ function renderBlogList() {
     });
   });
 
-  // Mantener el badge del carrito coherente con el resto del sitio, si existe esa función
   if (typeof updateCartBadge === "function") updateCartBadge();
 }
 

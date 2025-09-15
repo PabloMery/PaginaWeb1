@@ -12,7 +12,6 @@ a{color:inherit;text-decoration:none}
 a:hover{color:var(--brand)}
 .wrap{max-width:var(--max);margin:auto;padding:0 1rem}
 
-/* Top bar + header */
 .top{background:#e5e7eb;border-bottom:1px solid var(--border)}
 .top__row{display:flex;align-items:center;gap:.75rem;padding:.6rem 0;font-size:.9rem;color:#374151}
 .spacer{flex:1}
@@ -27,7 +26,6 @@ header{background:#fff;border-bottom:1px solid var(--border);position:sticky;top
 .nav__actions{margin-left:auto;display:flex;align-items:center;gap:1rem}
 .cart__badge{background:#111;color:#fff;border-radius:999px;padding:.05rem .45rem;font-size:.78rem}
 
-/* ===== Blog ===== */
 .blog-hero{padding:1.2rem 0 .6rem;text-align:center}
 .blog-hero h1{margin:0 0 .3rem;letter-spacing:.02em}
 
@@ -38,7 +36,7 @@ header{background:#fff;border-bottom:1px solid var(--border);position:sticky;top
   border-radius:var(--radius);
   box-shadow:var(--shadow);
   display:grid;
-  grid-template-columns:minmax(0,1.4fr) minmax(0,1fr); /* texto | imagen */
+  grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);
   align-items:stretch;
   overflow:hidden;
 }
@@ -52,50 +50,39 @@ header{background:#fff;border-bottom:1px solid var(--border);position:sticky;top
   padding:.5rem .9rem;border-radius:.6rem;font-weight:600
 }
 
-/* ---- Imagen del post (MISMA ALTURA EN TODAS LAS TARJETAS) ---- */
 .post-img{
   margin:0;
   width:100%;
-  /* Altura responsive fija para el “banner”: ajusta los números a tu gusto */
   height:clamp(220px, 30vw, 360px);
   position:relative;
-  display:block; /* evita colapsos si es <figure> */
+  display:block;
   background:repeating-linear-gradient(45deg,#e5e7eb,#e5e7eb 16px,#f3f4f6 16px,#f3f4f6 32px);
 }
 
-/* Si usas <picture> */
 .post-img picture{width:100%;height:100%;display:block}
 
-/* La imagen siempre llena y recorta sobrante */
 .post-img img{
   width:100%;
   height:100%;
   display:block;
-  object-fit:cover;       /* llena el contenedor */
-  object-position: 50% 25%; /* centra el recorte; ajusta si quieres otro foco */
+  object-fit:cover;
+  object-position: 50% 25%;
 }
 
-/* Enfocar el texto del banner de Blog Detalle 2 */
 .post-hero--tangana img{
   object-fit: cover;
-  /* mueve el encuadre hacia la izquierda y un pelín abajo */
   object-position: 28% 52%;
 }
 
-/* Si en móvil necesitas mostrar un poquito más a la izquierda */
 @media (max-width: 900px){
   .post-hero--tangana img{ object-position: 20% 50%; }
 }
 
-/* (opcional) si aún queda apretado, haz este banner un poco más alto */
 .post-hero--tangana{
-  /* sube un poco la altura sólo para este banner */
   height: clamp(300px, 38vw, 460px);
 }
 
-/* Responsive */
 @media (max-width:900px){
   .post-card{grid-template-columns:1fr}
-  /* en móvil mantenemos un banner apaisado coherente */
   .post-img{height:clamp(180px, 45vw, 260px)}
 }

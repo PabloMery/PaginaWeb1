@@ -1,6 +1,3 @@
-// ===== Validación Inicio de Sesión =====
-// Reglas: correo requerido (<=100) con dominios permitidos; password 4-10
-
 const EMAIL_RX = /^[^\s@]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/i;
 
 function setError(input, msg, errorBoxId) {
@@ -45,13 +42,11 @@ function validatePassword() {
 }
 
 function refreshSubmitState() {
-  // bitwise &: evaluamos ambas siempre para pintar errores en ambos campos
   const ok = validateEmail() & validatePassword();
   document.getElementById("login-submit").disabled = !ok;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Mantener badge del carrito consistente con el sitio
   if (typeof updateCartBadge === "function") updateCartBadge();
 
   const form = document.getElementById("login-form");
@@ -65,10 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     if (!(validateEmail() && validatePassword())) return;
 
-    // Simulación de login (sin backend)
     alert("Inicio de sesión exitoso (simulado).");
-    // Ejemplo: localStorage.setItem("session_user_email", email.value.trim());
-    // location.href = "Home.html";
   });
 
   form.addEventListener("reset", () => {
