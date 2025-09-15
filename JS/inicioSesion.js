@@ -52,7 +52,7 @@ function refreshSubmitState() {
 
 document.addEventListener("DOMContentLoaded", () => {
   // Mantener badge del carrito consistente con el sitio
-  if (typeof updateCartBadge === "function") updateCartBadge(); // app.js :contentReference[oaicite:4]{index=4}
+  if (typeof updateCartBadge === "function") updateCartBadge();
 
   const form = document.getElementById("login-form");
   const email = document.getElementById("email");

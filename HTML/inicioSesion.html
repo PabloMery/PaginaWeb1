@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio Sesion - Site Name</title>
-    <link rel="stylesheet" href="../CSS/inicioSesion.css">
-    <script src="../JS/inicioSesion.js" defer></script>
-    <script src="../JS/app.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inicio Sesión - Site Name</title>
+
+  <!-- Estilos específicos de esta vista -->
+  <link rel="stylesheet" href="../CSS/inicioSesion.css" />
+
+  <!-- Validación de inicio de sesión -->
+  <script src="../JS/inicioSesion.js" defer></script>
+
+  <!-- JS global (carrito, etc.) -->
+  <script src="../JS/app.js" defer></script>
 </head>
 <body>
-      <!-- Franja superior -->
+  <!-- Franja superior -->
   <div class="top">
     <div class="wrap top__row" aria-label="Accesos rápidos">
       <span class="muted">Bienvenido(a)</span>
@@ -17,20 +23,21 @@
       <a href="#">Registrar usuario</a>
     </div>
   </div>
+
   <!-- Encabezado / navegación -->
   <header role="banner">
     <div class="wrap nav">
-      <a class="brand" href="#" aria-label="Inicio">
+      <a class="brand" href="Home.html" aria-label="Inicio">
         <span class="brand__dot" aria-hidden="true"></span>
         <span>Site Name</span>
       </a>
 
       <nav class="nav__links" aria-label="Principal">
-        <a href="#" aria-current="page">Home</a>
-        <a href="productos.html ">Productos</a>
-        <a href="#">Nosotros</a>
+        <a href="Home.html">Home</a>
+        <a href="productos.html">Productos</a>
+        <a href="nosotros.html">Nosotros</a>
         <a href="../HTML/blog.html">Blog</a>
-        <a href="#">Contacto</a>
+        <a href="contacto.html">Contacto</a>
       </nav>
 
       <div class="nav__actions">
@@ -40,11 +47,17 @@
       </div>
     </div>
   </header>
+
+  <!-- Contenido -->
   <main class="wrap auth">
     <section class="auth__card" aria-labelledby="titulo-login">
       <div class="auth__head">
-        <div class="logo-ph" aria-hidden="true">LOGO</div>
-        <h1 id="titulo-login">Tangana?</h1>
+        <!-- LOGO TANGANA -->
+        <div class="auth__logo">
+          <img src="../IMG/logo/logo.png" alt="TANGANA" />
+        </div>
+
+        <h1 id="titulo-login">TANGANA</h1>
         <p class="help">Ingresa con tu correo y contraseña.</p>
       </div>
 
