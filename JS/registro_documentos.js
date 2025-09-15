@@ -178,38 +178,30 @@ function validarConfirmacion() {
 
 
 
-//BOTON REGISTRAR//
 const botonRegistrar = document.getElementById("btnRegistrar");
 const mensajeGeneral = document.getElementById("parrafo_5");
 
 botonRegistrar.addEventListener("click", () => {
     let errores = false;
 
-    // Validar Nombre
     const nombre = document.getElementById("nombre");
     if (!nombre.classList.contains("is-valid")) errores = true;
 
-    // Validar Correo
     const correo = document.getElementById("correo");
     if (!correo.classList.contains("is-valid")) errores = true;
 
-    // Validar Contraseña
     const contrasena = document.getElementById("contrasena");
     if (!contrasena.classList.contains("is-valid")) errores = true;
 
-    // Validar Confirmación de Contraseña
     const confContrasena = document.getElementById("confi_contrasena");
     if (!confContrasena.classList.contains("is-valid")) errores = true;
 
-    // Validar Región
     const region = document.getElementById("region");
     if (region.value === "" || region.value === null) errores = true;
 
-    // Validar Comuna
     const comuna = document.getElementById("comuna");
     if (comuna.value === "" || comuna.value === null) errores = true;
 
-    // Mostrar mensaje
     if (errores) {
         mensajeGeneral.innerHTML = "Hay errores en el llenado del cuestionario. Por favor, revisa los campos.";
         mensajeGeneral.style.color = "red";
