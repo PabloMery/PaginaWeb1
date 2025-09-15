@@ -20,7 +20,7 @@ const POSTS = [
       "Por el triunfo de Pablo Sánchez, pronto liberaremos descuentos en la Botella Térmica 750 ml y en la Bicicleta BMX Wtp Trust Cs Rsd Matt Black. Mantente atento a tienda, web y redes.",
     enlace: "blogDetalle2.html",
     imgAlt: "Promoción de productos para ciclismo",
-    img: "../IMG/otro-banner.jpg"  // si luego quieres imagen para este también
+    img: "../IMG/Blog/Blog2Sorteo.png"  // si luego quieres imagen para este también
   },
 ];
 
