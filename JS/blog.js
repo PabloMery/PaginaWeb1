@@ -14,10 +14,10 @@ const POSTS = [
   },
   {
     id: 2,
-    titulo: "¡Prepárate para ser ciclista! Descuentos por victoria de Pablo Sánchez",
+    titulo: "¡Prepárate para ser ciclista! Descuentos por victoria de Pablo Sánchez en Red Bull Rodando Chile",
     fecha: "2025-09-12",
     resumen:
-      "Por el triunfo de Pablo Sánchez, pronto liberaremos descuentos en la Botella Térmica 750 ml y en la Bicicleta BMX Wtp Trust Cs Rsd Matt Black. Mantente atento a tienda, web y redes.",
+      "Por el triunfo de Pablo Sánchez, pronto liberaremos descuentos para la Bicicleta BMX Wtp Trust Cs Rsd Matt Black. Mantente atento a tienda, web y redes.",
     enlace: "blogDetalle2.html",
     imgAlt: "Promoción de productos para ciclismo",
     img: "../IMG/Blog/Blog2Sorteo.png"  // si luego quieres imagen para este también
