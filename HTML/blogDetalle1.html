@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Detalle 1 - Site Name</title>
-    <link rel="stylesheet" href="../CSS/blog.css"/>
-    <script src="../JS/app.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog Detalle 1 - Site Name</title>
+  <link rel="stylesheet" href="../CSS/blog.css" />
+  <script src="../JS/app.js" defer></script>
 </head>
 <body>
   <!-- Franja superior -->
@@ -29,7 +29,7 @@
 
       <nav class="nav__links" aria-label="Principal">
         <a href="#" aria-current="page">Home</a>
-        <a href="productos.html ">Productos</a>
+        <a href="productos.html">Productos</a>
         <a href="#">Nosotros</a>
         <a href="blog.html">Blog</a>
         <a href="#">Contacto</a>
@@ -42,9 +42,17 @@
       </div>
     </div>
   </header>
-<main class="wrap">
+
+  <main class="wrap">
     <article class="post-card" style="grid-template-columns:1fr;">
-      <div class="post-img" aria-hidden="true" style="min-height:260px;">Imagen</div>
+      <!-- BANNER -->
+      <figure class="post-img post-hero">
+        <!-- Ajusta la ruta si tu carpeta es distinta -->
+        <img src="../IMG/Blog/RodandoChileNoticia1Banner.avif"
+             alt="Red Bull Rodando Chile en Callampark: truco BMX del ganador"
+             loading="eager">
+      </figure>
+
       <div class="post-body">
         <h1 class="post-title">Ganador Red Bull Rodando en Callampark</h1>
         <div class="post-meta">Callampark, La Florida — Red Bull Rodando Chile — 2025</div>
